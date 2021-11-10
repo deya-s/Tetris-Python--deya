@@ -1,0 +1,55 @@
+Wwhat so far
+
+
+self.chains has values wwhich will be added to the elements
+when a button is pushed and all elements in this vicinity
+will be coloured
+
+starts from right to left from bottom to top
+which means that when colouring
+-> starting element will be the pushed button
+start from pushed button and find the leftmost on this row
+- then again go to rightmost of the row and go to leftmost
+and so on until the whole figure is coloured
+
+IF an element is not a valid position - then display error
+because the drawing is unable to be done
+
+push button - colour with this figure
+if cant colour there - display X
+
+afterwards:
+timer for 15 seconds to find the best place
+then the drawing's colours get permanent and can't be changed
+
+instead of saving is self.chain i make a dictionary for
+each row and go from lowest to the left to first rowww
+
+0   1
+1 0 1
+2 0 1 2 !!!
+
+
+
+
+unused code
+
+'''
+        startIndexX = self.chain[-1][0]
+        startIndexY = self.chain[-1][1]
+
+
+        for i in range(len(self.chain)-1, -1, -1):
+            self.chain[i] = (startIndexX - self.chain[i][0]- startIndexX, startIndexY-self.chain[i][1]-startIndexY)
+            chain_dict[self.chain[i][0]] += [self.chain[i][1]]
+        print(self.chain)
+        print("Dict of chain")
+        print(chain_dict)
+        '''
+'''
+                if fig[x][y] == '':
+                    button.setStyleSheet("background-color: white;")
+                else:
+                    button.setStyleSheet("background-color: yellow;")
+                    self.layout.addWidget(button, 12+x, y)
+                '''
