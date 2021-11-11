@@ -2,16 +2,13 @@ from Tetris import Tetris
 import random
 
 class Figure(Tetris):
-    limitX, limitY = 6, 4
-    randomX, randomY = random.randint(1, limitX), random.randint(1, limitY)
-    new_figure = None
     def __init__(self):
+
+        self.limitX, self.limitY = 6, 4
+        self.randomX, self.randomY = random.randint(1, self.limitX), random.randint(1, self.limitY)
         self.start()
         self.new_figure = [['' for _ in range(self.randomY)] for _ in range(self.randomX)]
-
         self.getRandom()
-
-
 
     def start(self):
         print("New figure")
