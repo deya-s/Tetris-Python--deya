@@ -80,11 +80,12 @@ class Board(QWidget):
                         text = self.fields[cur_fields][y].text()
                         self.fields[x][y].setText(text)
                         color = self.fields[cur_fields][y].palette().window().color().name()
-                        self.fields[x][y].setStyleSheet("background-color:" + str(color) + ";")
                         if text == '-':
                             self.occupied_places[x][y] = 'x'
+                            self.fields[x][y].setStyleSheet("QLabel {border: 3px solid darksalmon; color: " + str(color) + "; background-color:" + str(color) + ";}")
                         else:
                             self.occupied_places[x][y] = ''
+                            self.fields[x][y].setStyleSheet("background-color:" + str(color) + ";")
                     cur_fields-=1
                     if cur_fields == 0:
                         cur_fields+=1
@@ -173,7 +174,7 @@ class Board(QWidget):
                 edge.setFixedSize(35,27)
                 if x == 0 or x == self.fX - 1 or y == 0 or y == self.fY - 1:
                     edge.setText('.')
-                    edge.setStyleSheet("QLabel {border: 3px solid darkgrey; background-color: aliceblue;}")
+                    edge.setStyleSheet("QLabel {border: 3px solid darkgrey; color: aliceblue; background-color: aliceblue;}")
                     self.occupied_places[x][y] = '.'
                 else:
                     edge.setStyleSheet("background-color: black;")
@@ -207,7 +208,7 @@ class Board(QWidget):
                 self.start=False
                 for el in self.chain:
                     self.fields[el[0]][el[1]].setText('-')
-                    self.fields[el[0]][el[1]].setStyleSheet(" QLabel {background-color: aliceblue;}")
+                    self.fields[el[0]][el[1]].setStyleSheet(" QLabel {border: 3px solid darksalmon; color: firebrick; background-color: firebrick;}")
                     self.occupied_places[el[0]][el[1]] = "x"
                 self.prepareFigure(Figure())
             # getting text from count
@@ -223,7 +224,7 @@ class Board(QWidget):
                     self.start = False
                     for el in self.chain:
                         self.fields[el[0]][el[1]].setText('-')
-                        self.fields[el[0]][el[1]].setStyleSheet(" QLabel {background-color: aliceblue;}")
+                        self.fields[el[0]][el[1]].setStyleSheet(" QLabel {border: 3px solid darksalmon; color: firebrick; background-color: firebrick;}")
                         self.occupied_places[el[0]][el[1]] = "x"
                     self.prepareFigure(Figure())
             # showing text
